@@ -4,4 +4,7 @@
 
 
 # reach4me
-A Python Library to send message to people, using different alerting tools like emailing, Twilio, Octopush.
+
+reach4me is a messaging Python library that combine different alerting tools to send messages with text.
+
+It currently support sending emails through SMTP, and SMS through Twilio and Octopush.
