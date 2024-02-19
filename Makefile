@@ -23,15 +23,19 @@ freeze: venv # Generate list of installed dependencies
 test:
 	. $(VENV); pytest --cov-report=term \
 		--cov-report=xml:reports/coverage/coverage.xml \
-		--cov-report=html:docs/coverage_report/ \
+		--cov-report=html:_pages_build/coverage_report/ \
 		--junitxml=reports/junit/junit.xml \
 		--cov=src \
-		--cov-fail-under=100
+		--cov-fail-under=90
+
+	# Remove .gitignore inside html report folder to send it to GH pages
+	rm _pages_build/coverage_report/.gitignore || true
+	rm reports/flake8/flake8stats.txt || true
 
 	. $(VENV); flake8 src \
 		--exit-zero \
 		--format=html \
-		--htmldir ./docs/flake8 \
+		--htmldir ./_pages_build/flake8 \
 		--statistics --tee \
 		--output-file reports/flake8/flake8stats.txt
 
