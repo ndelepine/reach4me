@@ -1,6 +1,6 @@
 name: Run tests and build documentation
 
-on: [push, pull_request, workflow_dispatch]
+on: [push, workflow_dispatch]
 
 permissions:
   contents: write
@@ -46,7 +46,7 @@ jobs:
           make test
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.event_name == 'push' && github.ref_name == 'gh-pages-reports' }}
+        if: ${{ github.event_name == 'push' && github.ref_name == 'develop' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
