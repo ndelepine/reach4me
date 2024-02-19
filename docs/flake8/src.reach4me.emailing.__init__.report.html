@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: src/reach4me/emailing/__init__.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="src.reach4me.emailing.__init__.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               src/reach4me/emailing/__init__.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  9
+               </span>
+               <strong>E501:</strong> line too long (115 > 79 characters)
+               
+                  (and 6 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (115 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l18">
+                  <tt><i>18</i>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">smtp_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">login</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l28">
+                  <tt><i>28</i> <span class="sd">        Function that parses the recipient into a list of dict expected by Gmail</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (87 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l41">
+                  <tt><i>41</i>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipient</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">recipient</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l44">
+                  <tt><i>44</i>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;recipient should be a string of a list of string&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (95 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l49">
+                  <tt><i>49</i> <span class="sd">        Function that verifies if the recipient of the EmailAlertingTool is of the right format</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (81 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l55">
+                  <tt><i>55</i> <span class="sd">            ValueError: Raises an error if the value of the recipien is incorrect</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (82 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l58">
+                  <tt><i>58</i>         <span class="n">rule</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b&#39;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l81">
+                  <tt><i>81</i>     <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (89 > 79 characters):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l103">
+                  <tt><i>103</i>                 <span class="n">response</span> <span class="o">=</span> <span class="n">smtp_server</span><span class="o">.</span><span class="n">sendmail</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="p">,</span> <span class="n">recipients</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">as_string</span><span class="p">())</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W293">
+               <span class="count sev-2">
+                  5
+               </span>
+               <strong>W293:</strong> blank line contains whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l17">
+                  <tt><i>17</i>     </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l66">
+                  <tt><i>66</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l80">
+                  <tt><i>80</i>             </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l89">
+                  <tt><i>89</i>         </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l108">
+                  <tt><i>108</i>         </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W291">
+               <span class="count sev-2">
+                  4
+               </span>
+               <strong>W291:</strong> trailing whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l16">
+                  <tt><i>16</i> <span class="sd">    &quot;&quot;&quot;</span>    </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l38">
+                  <tt><i>38</i> <span class="sd">        &quot;&quot;&quot;</span>        </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l46">
+                  <tt><i>46</i>     <span class="nd">@classmethod</span>  </tt>
+               </a>
+            </li><li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l88">
+                  <tt><i>88</i> <span class="sd">        &quot;&quot;&quot;</span>        </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E231">
+               <span class="count sev-2">
+                  3
+               </span>
+               <strong>E231:</strong> missing whitespace after ':'
+               
+                  (and 1 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Missing whitespace after ':' (in 2 places):</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l18">
+                  <tt><i>18</i>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">smtp_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">smtp_port</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">login</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Missing whitespace after ',':</p>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l41">
+                  <tt><i>41</i>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipient</span><span class="p">,</span><span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">recipient</span><span class="p">):</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E275">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E275:</strong> missing whitespace after keyword
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l107">
+                  <tt><i>107</i>             <span class="k">raise</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E303">
+               <span class="count sev-2">
+                  1
+               </span>
+               <strong>E303:</strong> too many blank lines (2)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="src.reach4me.emailing.__init__.source.html#l81">
+                  <tt><i>81</i>     <span class="k">def</span> <span class="nf">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">to</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subject</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

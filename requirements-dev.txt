@@ -14,7 +14,12 @@ pytest-xdist
 pipdeptree
 pyinstrument
 pytest-mock
-coverage-badge
+pytest-html
+genbadge[coverage]
+
+# Quality code dependencies
+flake8
+flake8-html
 
 # Documentation dependencies
 sphinx
