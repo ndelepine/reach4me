@@ -77,6 +77,8 @@ jobs:
           path: _pages
       - name: Move _pages folder to _pages_build to push to gh_pages branch
         run: mv _pages/artifact/* _pages_build
+      - name: Copy the badges
+        run: cp -r docs/badges _pages_build/badges
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref_name == 'develop' }}

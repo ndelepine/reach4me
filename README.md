@@ -1,4 +1,6 @@
-![Tests](./docs/badges/tests.svg)[![Coverage Status](./docs/badges/coverage.svg)](https://ndelepine.github.io/reach4me/coverage_report/)[![Flake8](./docs/badges/flake8.svg)](https://ndelepine.github.io/reach4me/flake8/)
+![Tests](https://ndelepine.github.io/reach4me/badges/tests.svg)
+[![Coverage Status](https://ndelepine.github.io/reach4me/badges/coverage.svg)](https://ndelepine.github.io/reach4me/coverage_report/)
+[![Flake8](https://ndelepine.github.io/reach4me/badges/flake8.svg)](https://ndelepine.github.io/reach4me/flake8/)
 
 
 # reach4me
