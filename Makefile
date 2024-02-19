@@ -21,8 +21,10 @@ freeze: venv # Generate list of installed dependencies
 
 # Test commands
 test:
-	. $(VENV); pytest --cov-report=term --cov-report=html --cov=src
-	. $(VENV); coverage-badge -f -o badges/coverage.svg
+	. $(VENV); pytest --cov-report=term --cov=src --cov-fail-under=100
+
+coverage:
+	. $(VENV); coverage-badge -f -o docs/badges/coverage.svg
 
 # Build commands
 build: venv
