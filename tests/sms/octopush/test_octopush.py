@@ -27,7 +27,7 @@ def test_parse_recipient_ko(helper):
     assert result == [{"phone_number" : "+33123456789"}, {"phone_number" : "+33987654321"}]
 
 def test_parse_recipient_error(helper):
-    with pytest.raises(ValueError, match="recipient should be a string of a list of string"):
+    with pytest.raises(ValueError, match="recipient should be a string or a list of string"):
         helper._parse_recipient([1, 2])
 
 def test_get_balance(mocker, helper):

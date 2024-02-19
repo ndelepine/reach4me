@@ -1,14 +1,14 @@
 # coding: utf-8
-from typing import Any, List
+from typing import List
 from reach4me.sms import SmsAlertingTool
 from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException
 from twilio.rest.api.v2010.account.message import MessageInstance
 
-class TwilioHelper(SmsAlertingTool):
-    
 
-    def __init__(self, sender:str, sid: str, token: str):
+class TwilioHelper(SmsAlertingTool):
+
+    def __init__(self, sender: str, sid: str, token: str):
         """
         Creation of the sid and token parameters to create the client property
         Args:
@@ -29,7 +29,6 @@ class TwilioHelper(SmsAlertingTool):
         """
         return Client(self.sid, self.token)
 
-            
     def send_message(self, to: str | List[str], msg: str) -> MessageInstance:
         """
         Method that send a message using the Twilio Client
@@ -37,8 +36,8 @@ class TwilioHelper(SmsAlertingTool):
         Args:
             to (str | List[str]): Recipients of the message
             msg (str): Body of the message
-        """        
-        
+        """
+
         try:
             # Send the message
             response = self.client.messages \
@@ -48,8 +47,6 @@ class TwilioHelper(SmsAlertingTool):
                     to=to
                 )
             return response
-        
+
         except TwilioRestException as e:
             raise e
-    
-  
