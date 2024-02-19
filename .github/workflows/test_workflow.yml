@@ -26,6 +26,11 @@ jobs:
       run: make test
     - name: Compute badges
       run: make badges
+    - name: Update badges
+      run: |
+        git add -A
+        git commit -m "CI: Update badges"
+        git push
 
 
   docs:
