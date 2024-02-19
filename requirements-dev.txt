@@ -16,6 +16,10 @@ pyinstrument
 pytest-mock
 coverage-badge
 
+# Documentation dependencies
+sphinx
+sphinx_rtd_theme
+
 # Build tools
 wheel
 setuptools
