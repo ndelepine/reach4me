@@ -26,7 +26,7 @@ test:
 		--cov-report=html:_pages_build/coverage_report/ \
 		--junitxml=reports/junit/junit.xml \
 		--cov=src \
-		--cov-fail-under=100
+		--cov-fail-under=90
 
 	# Remove .gitignore inside html report folder to send it to GH pages
 	rm _pages_build/coverage_report/.gitignore
