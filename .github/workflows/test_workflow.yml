@@ -7,7 +7,6 @@ permissions:
 
 jobs:
   tests:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -24,18 +23,45 @@ jobs:
       run: make venv
     - name: Perform tests
       run: make test
+
+
+
+  badges:
+    runs-on: ubuntu-latest
+    needs: [tests]
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
     - name: Compute badges
-      run: make badges
+      run: |
+        make venv
+        make test
+        make badges
     - name: Update badges
       run: |
-        git add -A
-        git commit -m "CI: Update badges"
-        git push
+        if [ -z "$(git status --porcelain)" ]; then
+          # Working directory clean
+          echo "nothing to commit"
+        else
+          # set user info
+          git config user.name "$(git log -n 1 --pretty=format:%an)"
+          git config user.email "$(git log -n 1 --pretty=format:%ae)"
+        
+          # commit and push
+          git add .
+          git commit -m "CI: Update badges"
+          git push
+        fi
+    - uses: actions/upload-artifact@v3
+      with:
+        path: _pages
+
 
 
   docs:
     runs-on: ubuntu-latest
-    needs: [tests]
+    needs: [badges]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
@@ -46,10 +72,11 @@ jobs:
         run: |
           cd docs && make clean html
           cd .. && sphinx-build docs _pages_build
-      - name: Build coverage doc
-        run: |
-          make venv
-          make test
+      - uses: actions/download-artifact@v3
+        with:
+          path: _pages
+      - name: Move _pages folder to _pages_build to push to gh_pages branch
+        run: mv _pages/artifact/* _pages_build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref_name == 'develop' }}
