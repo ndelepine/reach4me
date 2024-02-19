@@ -30,6 +30,7 @@ jobs:
 
   docs:
     runs-on: ubuntu-latest
+    needs: [tests]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v3
@@ -39,6 +40,10 @@ jobs:
       - name: Sphinx build
         run: |
           sphinx-build docs _pages_build
+      - name: Build coverage doc
+        run: |
+          make venv
+          make test
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref_name == 'gh-pages-reports' }}
