@@ -1,0 +1,23 @@
+-r requirements.txt
+
+# Local testing
+python-dotenv
+
+# Twilio
+twilio
+
+
+# Test dependencies
+pytest >= 6
+pytest-cov
+pytest-xdist
+pipdeptree
+pyinstrument
+pytest-mock
+coverage-badge
+
+# Build tools
+wheel
+setuptools
+pbr
+twine
