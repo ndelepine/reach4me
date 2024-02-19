@@ -28,6 +28,9 @@ test:
 		--cov=src \
 		--cov-fail-under=100
 
+	# Remove .gitignore inside html report folder to send it to GH pages
+	rm _pages_build/coverage_report/.gitignore
+
 	. $(VENV); flake8 src \
 		--exit-zero \
 		--format=html \
