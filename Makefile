@@ -29,7 +29,8 @@ test:
 		--cov-fail-under=90
 
 	# Remove .gitignore inside html report folder to send it to GH pages
-	rm _pages_build/coverage_report/.gitignore
+	rm _pages_build/coverage_report/.gitignore || true
+	rm reports/flake8/flake8stats.txt || true
 
 	. $(VENV); flake8 src \
 		--exit-zero \
