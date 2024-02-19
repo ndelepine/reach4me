@@ -31,7 +31,7 @@ class EmailAlertingTool(AlertingTool):
             recipient (str | List[str]): The recipients of the Email
 
         Raises :
-            ValueError: Check if the recipient is a str of a list of str
+            ValueError: Check if the recipient is a str or a list of str
 
         Returns:
             list: The list of dict of the recipients
@@ -41,7 +41,7 @@ class EmailAlertingTool(AlertingTool):
         elif isinstance(recipient,list) and all(isinstance(r, str) for r in recipient):
             return recipient
         else:
-            raise ValueError("recipient should be a string of a list of string")
+            raise ValueError("recipient should be a string or a list of string")
 
     @classmethod  
     def _validate_recipient(self, recipient: str | List[str]):

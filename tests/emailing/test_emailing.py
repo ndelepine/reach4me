@@ -18,7 +18,7 @@ def test_parse_recipient_list():
     assert result == ["test1@test.com", "test2@test.com"]
 
 def test_parse_recipient_error():
-    with pytest.raises(ValueError, match="recipient should be a string of a list of string"):
+    with pytest.raises(ValueError, match="recipient should be a string or a list of string"):
         EmailAlertingTool._parse_recipient([1, 2])
 
 def test_validate_recipient():

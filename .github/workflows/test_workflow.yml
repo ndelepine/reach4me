@@ -39,7 +39,8 @@ jobs:
           pip install sphinx sphinx_rtd_theme myst_parser
       - name: Sphinx build
         run: |
-          sphinx-build docs _pages_build
+          cd docs && make clean html
+          cd .. && sphinx-build docs _pages_build
       - name: Build coverage doc
         run: |
           make venv
