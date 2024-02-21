@@ -6,6 +6,8 @@ python-dotenv
 # Twilio
 twilio
 
+# Examples
+ipykernel
 
 # Test dependencies
 pytest >= 6

@@ -12,7 +12,7 @@ API_ROOT = "https://api.octopush.com/v1/public/"
 BALANCE_PATH = "wallet/check-balance"
 SMS_PATH = "multi-channel/send"
 
-SMS_DEFAULT_PRICE_CENTS = 10
+SMS_DEFAULT_PRICE_CENTS = 4.5
 
 class InsuffisantBalanceException(Exception):
     pass
@@ -20,7 +20,7 @@ class InsuffisantBalanceException(Exception):
 class OctopushHelper(SmsAlertingTool):
 
     
-    def __init__(self, sender: str, login: str, token: str, sms_price_cents: int = SMS_DEFAULT_PRICE_CENTS):
+    def __init__(self, sender: str, login: str, token: str, sms_price_cents: float = SMS_DEFAULT_PRICE_CENTS):
         """
         Creation of the sid and token parameters to create the client property
         Args:
