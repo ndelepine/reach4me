@@ -89,11 +89,19 @@ Uses the host `smtp.gmail.com` and the port `587` to send email. Since 30 may 20
 An `examples` folder with examples is available :
 <ul>
 <li>
-<a href="/examples/email_with_gmail.py" target="_self">Gmail</a>: generic gmail usage, importing the library, configuring the logger to write to the <cite>stdout</cite> and using environment variables via <cite>dotenv</cite> to instantiate the GmailHelper and send the mail.
+<a href="/examples/emailing/gmail.ipynb" target="_self">Gmail</a>: generic Gmail usage, importing the library, configuring the logger to write to the <cite>stdout</cite> and using environment variables via <cite>dotenv</cite> to instantiate the GmailHelper and send the mail.
+</li>
+<li>
+<a href="/examples/sms/twilio.ipynb" target="_self">Twilio</a>: generic Twilio usage, importing the library, configuring the logger to write to the <cite>stdout</cite> and using environment variables via <cite>dotenv</cite> to instantiate the TwilioHelper and send the SMS.
+
+The response of the API call is printed.
+</li>
+<li>
+<a href="/examples/sms/octopush.ipynb" target="_self">Octopush</a>: generic Octopush usage, importing the library, configuring the logger to write to the <cite>stdout</cite> and using environment variables via <cite>dotenv</cite> to instantiate the OctopushHelper and send the SMS.
+
+The response of the API call is printed, containing the remaining balance on the account.
 </li>
 </ul>
-
-More examples will soon be added, using interactive notebooks for testing.
 
 ## Caveats / FYI <a name="fyi"></a>
 
