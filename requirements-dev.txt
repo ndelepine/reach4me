@@ -22,6 +22,8 @@ genbadge[coverage]
 # Quality code dependencies
 flake8
 flake8-html
+black
+pre-commit
 
 # Documentation dependencies
 sphinx

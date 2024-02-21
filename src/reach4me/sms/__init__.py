@@ -6,7 +6,6 @@ import re
 
 
 class SmsAlertingTool(AlertingTool):
-
     @classmethod
     def _validate_recipient(self, recipient: str | List[str]):
         """
@@ -20,10 +19,9 @@ class SmsAlertingTool(AlertingTool):
             ValueError: Raises an error if the value of the recipient
               is incorrect
         """
-        rule = re.compile(r'\+[0-9]{11}')
+        rule = re.compile(r"\+[0-9]{11}")
 
-        if isinstance(recipient, list) and \
-            all(isinstance(r, str) for r in recipient):
+        if isinstance(recipient, list) and all(isinstance(r, str) for r in recipient):
             for number in recipient:
                 if not rule.search(number):
                     msg = f"Invalid mobile number : {number}"
