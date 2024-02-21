@@ -6,7 +6,7 @@ import json
 import logging
 from math import ceil
 
-logger = logging.getLogger('Octopush')
+logger = logging.getLogger("Octopush")
 
 API_ROOT = "https://api.octopush.com/v1/public/"
 BALANCE_PATH = "wallet/check-balance"
@@ -14,13 +14,19 @@ SMS_PATH = "multi-channel/send"
 
 SMS_DEFAULT_PRICE_CENTS = 4.5
 
+
 class InsuffisantBalanceException(Exception):
     pass
 
-class OctopushHelper(SmsAlertingTool):
 
-    
-    def __init__(self, sender: str, login: str, token: str, sms_price_cents: float = SMS_DEFAULT_PRICE_CENTS):
+class OctopushHelper(SmsAlertingTool):
+    def __init__(
+        self,
+        sender: str,
+        login: str,
+        token: str,
+        sms_price_cents: float = SMS_DEFAULT_PRICE_CENTS,
+    ):
         """
         Creation of the sid and token parameters to create the client property
         Args:
@@ -43,9 +49,9 @@ class OctopushHelper(SmsAlertingTool):
         return {
             "Content-Type": "application/json",
             "api-login": self.login,
-            "api-key": self.token
+            "api-key": self.token,
         }
-    
+
     def _get_balance(self) -> float:
         """
         Function that returns the Octopush account balance
@@ -55,16 +61,16 @@ class OctopushHelper(SmsAlertingTool):
 
         Returns:
             float: The account balance
-        """        
+        """
 
         try:
             balance = requests.get(API_ROOT + BALANCE_PATH, headers=self.client)
             balance.raise_for_status()
-            return balance.json()["amount"]*100
-        
+            return balance.json()["amount"] * 100
+
         except requests.HTTPError as e:
             raise e
-        
+
     @classmethod
     def _parse_recipient(cls, recipient: str | List[str]) -> list:
         """
@@ -78,14 +84,14 @@ class OctopushHelper(SmsAlertingTool):
 
         Returns:
             list: The list of dict of the recipients
-        """        
+        """
         if isinstance(recipient, str):
-            return [{"phone_number" : recipient}]
-        elif isinstance(recipient,list) and all(isinstance(r, str) for r in recipient):
+            return [{"phone_number": recipient}]
+        elif isinstance(recipient, list) and all(isinstance(r, str) for r in recipient):
             return [{"phone_number": number} for number in recipient]
         else:
             raise ValueError("recipient should be a string or a list of string")
-            
+
     def send_message(self, to: str | List[str], msg: str) -> requests.Response:
         """
         Method that send a message using the Octopush Client
@@ -93,17 +99,19 @@ class OctopushHelper(SmsAlertingTool):
         Args:
             to (str | List[str]): Recipients of the message
             msg (str): Body of the message
-        """        
-        
+        """
+
         # Check if the balance allows to send an sms :
         remaining_credit = self._get_balance()
         logger.info(f"You balance is of {remaining_credit} cents")
-        
-        msg_price = ceil(len(msg)/160)* self.sms_price_cents
+
+        msg_price = ceil(len(msg) / 160) * self.sms_price_cents
         logger.info(f"The sms will cost {msg_price:.2f} cents")
 
-        if remaining_credit<=msg_price:
-            raise InsuffisantBalanceException(f"No enough credit : your balance is {remaining_credit:.2f}cts, and the sms will cost {msg_price:.2f}cts")
+        if remaining_credit <= msg_price:
+            raise InsuffisantBalanceException(
+                f"No enough credit : your balance is {remaining_credit:.2f}cts, and the sms will cost {msg_price:.2f}cts"
+            )
 
         try:
             data = {
@@ -113,13 +121,15 @@ class OctopushHelper(SmsAlertingTool):
                 "metadata": {
                     "type": "sms_premium",
                     "sender": self.sender,
-                    "purpose": "alert"
-                }
+                    "purpose": "alert",
+                },
             }
 
-            response = requests.post(API_ROOT + SMS_PATH, headers=self.client, data=json.dumps(data))
+            response = requests.post(
+                API_ROOT + SMS_PATH, headers=self.client, data=json.dumps(data)
+            )
 
             return response
-        
+
         except requests.HTTPError as e:
-            raise(e)
+            raise (e)

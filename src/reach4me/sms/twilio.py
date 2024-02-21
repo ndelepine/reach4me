@@ -7,7 +7,6 @@ from twilio.rest.api.v2010.account.message import MessageInstance
 
 
 class TwilioHelper(SmsAlertingTool):
-
     def __init__(self, sender: str, sid: str, token: str):
         """
         Creation of the sid and token parameters to create the client property
@@ -40,12 +39,7 @@ class TwilioHelper(SmsAlertingTool):
 
         try:
             # Send the message
-            response = self.client.messages \
-                .create(
-                    body=msg,
-                    from_=self.sender,
-                    to=to
-                )
+            response = self.client.messages.create(body=msg, from_=self.sender, to=to)
             return response
 
         except TwilioRestException as e:

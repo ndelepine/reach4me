@@ -39,6 +39,9 @@ test:
 		--statistics --tee \
 		--output-file reports/flake8/flake8stats.txt
 
+refactor:
+	black src
+
 badges:
 	. $(VENV); genbadge tests -o docs/badges/tests.svg
 	. $(VENV); genbadge coverage -o docs/badges/coverage.svg
