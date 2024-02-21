@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: src/reach4me/sms/octopush.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="src.reach4me.sms.octopush.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               src/reach4me/sms/octopush.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  5
+               </span>
+               <strong>E501:</strong> line too long (80 > 79 characters)
+               
+                  (and 3 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="src.reach4me.sms.octopush.source.html#l67">
+                  <tt><i>67</i>             <span class="n">balance</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">API_ROOT</span> <span class="o">+</span> <span class="n">BALANCE_PATH</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (87 > 79 characters):</p>
+               
+               <a href="src.reach4me.sms.octopush.source.html#l77">
+                  <tt><i>77</i> <span class="sd">        Function that parses the recipient into a list of dict expected by Octopush API</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="src.reach4me.sms.octopush.source.html#l90">
+                  <tt><i>90</i>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">recipient</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">recipient</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (80 > 79 characters):</p>
+               
+               <a href="src.reach4me.sms.octopush.source.html#l93">
+                  <tt><i>93</i>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;recipient should be a string or a list of string&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (121 > 79 characters):</p>
+               
+               <a href="src.reach4me.sms.octopush.source.html#l113">
+                  <tt><i>113</i>                 <span class="sa">f</span><span class="s2">&quot;No enough credit : your balance is </span><span class="si">{</span><span class="n">remaining_credit</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">cts, and the sms will cost </span><span class="si">{</span><span class="n">msg_price</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">cts&quot;</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>
